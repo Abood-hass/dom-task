@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: gray;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Color</title>
+</head>
+
+<body style="display: flex; justify-content: center;">
+    <div style="position: relative;">
+        <div
+            style=" position: fixed; display: flex; top: 0%; left: 0%; width: 100%; background-color: darkturquoise; height: 100px; align-items: center;  justify-content: center;">
+            <div style="font-size: 50px;">Crazy Color</div>
+        </div>
+    </div>
+
+    <div
+        style="display: flex; align-items: center; margin-top: 100px; justify-content: space-around; height: 600px; width: 40%; padding-right: 250px;">
+
+        <div id="paint" style="display: flex; height: 200px; width: 200px; background-color: #fff; align-items: center; margin-right: 50px;
+            justify-content: space-around; border-radius:10%; border: 0px solid #ffffff;">
+
+            <span style="font-size: 50px; ">Paint me</span>
+        </div>
+        <div style="display: flex; flex-direction: column; height: 200px; width: 300px; align-items: center;
+                    justify-content: space-around; border-radius:10%; border: 0px solid #ffffff;">
+
+            <button id="btn"
+                style="font-size: 15px; text-align: center; align-self: center;   background-color: aquamarine; width: 80%; ">Change
+                Color Plz </button>
+
+
+            <div style=" justify-self: center;">or</div>
+            <div style=" justify-self: center;">Type hex</div>
+            <input type="text" id="inputColor" />
+        </div>
+    </div>
+
+
+
+</body>
+
+
+<script>
+    document.getElementById("paint").style.transition = "all 500ms"
+    function changeColor(newColor) {
+        document.getElementById("paint").style.backgroundColor = newColor;
+        console.log(newColor);
+    }
+    document.getElementById("btn").onclick = function () {
+        let paint = "#" + Math.floor(Math.random() * 16777215).toString(16)
+        changeColor(paint)
+    }
+    document.getElementById("inputColor").onkeyup = function (event) {
+        var paint = "#" + event.target.value
+        document.getElementById("paint").style.backgroundColor = paint
+        changeColor(paint)
+    }
+
+</script>
+
+</html>
